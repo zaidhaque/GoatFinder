@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create a backgrond process to fetch goat positions
         dispatch_async(dispatch_queue_create("background", nil)) {
             
+            
             while(true) {
                 print("looking for goat position")
                 

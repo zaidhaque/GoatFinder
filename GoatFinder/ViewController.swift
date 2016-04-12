@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import CoreLocation
 
 class ViewController: UIViewController, UITextFieldDelegate{
 
@@ -17,6 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var saveButton: UIButton!
     
     var goat = Goat()
+    let locationManager = CLLocationManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,23 @@ class ViewController: UIViewController, UITextFieldDelegate{
         ageTextField.text = "\(goat.age)"
         
         saveButton.enabled = false
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if(CLLocationManager.locationServicesEnabled()) {
+            //locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+        else {
+            print("Location service disabled");
+        }
+
         
     }
     
@@ -74,6 +94,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
         } else {
             saveButton.enabled = false
         }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = (manager.location?.coordinate)!
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }
 
