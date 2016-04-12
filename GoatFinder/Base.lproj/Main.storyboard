@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3fS-oI-k7v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3fS-oI-k7v">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -16,13 +16,30 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="tfL-l9-K9s" kind="relationship" relationship="viewControllers" id="wNv-yD-ZPE"/>
+                        <segue destination="KQt-pT-8Q7" kind="relationship" relationship="viewControllers" id="kb7-Cc-9Ke"/>
                         <segue destination="KGp-3Q-DC7" kind="relationship" relationship="viewControllers" id="wWz-D8-Bqn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bW3-zg-TzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1572" y="597"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uh8-gh-nXV">
+            <objects>
+                <navigationController id="KQt-pT-8Q7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="hsZ-xl-4jf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I7A-MH-6Wg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tfL-l9-K9s" kind="relationship" relationship="rootViewController" id="2OC-Md-V09"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFn-1r-w7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-570" y="172"/>
         </scene>
         <!--GoatList-->
         <scene sceneID="Khb-Nc-rw9">
@@ -34,7 +51,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="SJu-fD-sH4" customClass="CellView" customModule="GoatFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJu-fD-sH4" id="ds3-1g-OL4">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -79,10 +96,19 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="GoatList" id="5WZ-es-Uab"/>
+                    <navigationItem key="navigationItem" id="cNd-4y-uRZ">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="IHf-6Y-S7p">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorBarButtonItem="IHf-6Y-S7p" id="n7e-HU-t08">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXt-rO-18H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="172"/>
+            <point key="canvasLocation" x="246" y="172"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -96,8 +122,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TCJ-c3-f9u">
+                                <rect key="frame" x="30" y="511" width="540" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-Nt-tvZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1N-rO-f4C"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTK-O4-dUZ">
+                                        <rect key="frame" x="270" y="0.0" width="270" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7E-E2-P76"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PXU-dp-kyg">
-                                <rect key="frame" x="28" y="20" width="544" height="60"/>
+                                <rect key="frame" x="30" y="86" width="544" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUc-Pn-5Zq">
                                         <rect key="frame" x="0.0" y="0.0" width="544" height="30"/>
@@ -133,33 +178,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TCJ-c3-f9u">
-                                <rect key="frame" x="30" y="511" width="540" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-Nt-tvZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1N-rO-f4C"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTK-O4-dUZ">
-                                        <rect key="frame" x="270" y="0.0" width="270" height="30"/>
-                                        <state key="normal" title="Save"/>
-                                        <connections>
-                                            <action selector="saveButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7E-E2-P76"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TCJ-c3-f9u" secondAttribute="bottom" constant="10" id="Ixt-n0-Q8K"/>
                             <constraint firstItem="TCJ-c3-f9u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="KAR-ft-eIq"/>
-                            <constraint firstItem="PXU-dp-kyg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Lc9-bl-Q0z"/>
-                            <constraint firstItem="PXU-dp-kyg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Nhg-oY-ZLI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PXU-dp-kyg" secondAttribute="trailing" constant="8" id="gKv-BB-q0N"/>
+                            <constraint firstItem="PXU-dp-kyg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="Lc9-bl-Q0z"/>
+                            <constraint firstItem="PXU-dp-kyg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Nhg-oY-ZLI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PXU-dp-kyg" secondAttribute="trailing" constant="6" id="gKv-BB-q0N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TCJ-c3-f9u" secondAttribute="trailing" constant="10" id="rTM-9U-Udq"/>
                         </constraints>
                     </view>
@@ -171,9 +197,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="195" y="172"/>
+            <point key="canvasLocation" x="1043" y="172"/>
         </scene>
-        <!--GoatMap-->
+        <!--Map View Controller-->
         <scene sceneID="juE-3g-xQf">
             <objects>
                 <viewController id="KGp-3Q-DC7" customClass="MapViewController" customModule="GoatFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -203,7 +229,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="nSQ-9J-I2a" secondAttribute="trailing" id="sRQ-ua-1PL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="GoatMap" id="WpE-Xk-OYw"/>
+                    <tabBarItem key="tabBarItem" badgeValue="1" systemItem="history" id="WpE-Xk-OYw"/>
                     <connections>
                         <outlet property="mapView" destination="nSQ-9J-I2a" id="kOD-FQ-rcM"/>
                     </connections>
@@ -213,4 +239,7 @@
             <point key="canvasLocation" x="-570" y="1016"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NkN-PO-Jnx"/>
+    </inferredMetricsTieBreakers>
 </document>

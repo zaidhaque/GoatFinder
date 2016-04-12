@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19308605B525774B9D0980C6 /* Pods_GoatFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD409ACB536C63D9573F0E /* Pods_GoatFinder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		19308605B525774B9D0980C6 /* Pods_GoatFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD409ACB536C63D9573F0E /* Pods_GoatFinder.framework */; };
 		6529BB391C88FEA2009B9D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529BB381C88FEA2009B9D72 /* AppDelegate.swift */; };
 		6529BB3B1C88FEA2009B9D72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529BB3A1C88FEA2009B9D72 /* ViewController.swift */; };
 		6529BB3E1C88FEA2009B9D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6529BB3C1C88FEA2009B9D72 /* Main.storyboard */; };
@@ -135,6 +135,7 @@
 				TargetAttributes = {
 					6529BB341C88FEA2009B9D72 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 42UR987J2U;
 					};
 				};
 			};
@@ -341,10 +342,13 @@
 			baseConfigurationReference = 59CDE26F1B7D7C7D3F645519 /* Pods-GoatFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GoatFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = danielhauagge.GoatFinder;
+				PRODUCT_BUNDLE_IDENTIFIER = zaidhaque.GoatFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -353,10 +357,13 @@
 			baseConfigurationReference = 2AADF902A40DD95B8777A342 /* Pods-GoatFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GoatFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = danielhauagge.GoatFinder;
+				PRODUCT_BUNDLE_IDENTIFIER = zaidhaque.GoatFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
