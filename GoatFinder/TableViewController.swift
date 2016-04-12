@@ -101,9 +101,11 @@ class TableViewController: UITableViewController {
     */
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! CellView
+        if segue.identifier == "cellSegue" {
+            let cell = sender as! CellView
         
-        let vc = segue.destinationViewController as! ViewController
-        vc.goat = cell.goat
+            let vc = segue.destinationViewController as! ViewController
+            vc.goat = cell.goat
+        }
     }
 }

@@ -86,7 +86,7 @@
                                 <connections>
                                     <outlet property="ageLabel" destination="0vN-LZ-auo" id="hie-rr-62B"/>
                                     <outlet property="nameLabel" destination="9B3-Uc-Jeq" id="abO-6O-ix3"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="NkN-PO-Jnx"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="cellSegue" id="NkN-PO-Jnx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
